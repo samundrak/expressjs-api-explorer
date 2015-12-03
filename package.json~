@@ -1,5 +1,5 @@
 {
-  "name": "expressjs-api-explorer",
+  "name": "api-explorer",
   "version": "1.0.0",
   "description": "Expressjs api explorer is an API Explorer module of expressJS where you can see all the registered api's of express also with the middleware attached. You can see the route method type and more",
   "main": "index.js",
