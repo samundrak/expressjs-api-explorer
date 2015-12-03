@@ -1,0 +1,55 @@
+{
+  "name": "api-explorer",
+  "version": "1.0.0",
+  "description": "Expressjs api explorer is an API Explorer module of expressJS where you can see all the registered api's of express also with the middleware attached. You can see the route method type and more",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samundrak/expressjs-api-explorer.git"
+  },
+  "keywords": [
+    "Expressjs",
+    "api",
+    "explorer",
+    "is",
+    "an",
+    "API",
+    "Explorer",
+    "module",
+    "of",
+    "expressJS",
+    "where",
+    "you",
+    "can",
+    "see",
+    "all",
+    "the",
+    "registered",
+    "api's",
+    "of",
+    "express",
+    "also",
+    "with",
+    "the",
+    "middleware",
+    "attached.",
+    "You",
+    "can",
+    "see",
+    "the",
+    "route",
+    "method",
+    "type",
+    "and",
+    "more"
+  ],
+  "author": "Samundra kc <samundrak@yahoo.com> (http://fb.com/samundrakc.com.np)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samundrak/expressjs-api-explorer/issues"
+  },
+  "homepage": "https://github.com/samundrak/expressjs-api-explorer#readme"
+}

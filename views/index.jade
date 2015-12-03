@@ -1,0 +1,60 @@
+html
+	head
+		title API Explorer
+		link(href="styles/bootstrap.css" rel="stylesheet")
+		link(href="styles/styles.css" rel="stylesheet")
+		script(src="javascripts/angular.min.js")
+		script(src="javascripts/angular-ui-router.js")
+		script(src="javascripts/angular-animate.js")
+		script(src="javascripts/jquery-1.5.2.js")
+		script(src="javascripts/bootstrap.min.js")
+		script(src="javascripts/app.js")
+	body(ng-app="api")
+		.content
+			.row.col-md-12(ng-controller="homeCtrl")
+				ul.list-group
+					li.list-group-item.active
+						.row
+							.col-md-6
+								p Express JS API Explorer 
+								p(ng-init="x=0" ng-bind=" ' Total ' + ( routes.length || 0 ) + ' Routes Registered' ") 
+								p Host: {{ getHostDetails()}}
+							.col-md-6
+								input(class="form-control" type="text" placeholder="Search API's fast " id="searchKey" ng-model="searchKey")
+					div(ng-if="!routes.length && loading")
+						div.alert.alert-danger No API's found on search key {{ searchKey }}
+					div(ng-if="!loading")
+						loading
+					div(ng-repeat=" route in  routes | filter:searchKey " )
+						li.list-group-item(ng-if="route.route.path")
+							.row 
+								.col-md-12
+									div.alert.alert-success(style="cursor:pointer;" ng-click="more($index)")
+										div {{ $index + 1}})  {{ route.route.path }}
+											div.btn.btn-info.pull-right {{ route.route.stack.length >= 20 ? 'ALL' : getRouteMethod(route.route.methods) }}
+								.col-md-12(id="li_{{$index}}" style="display:none;")
+									div.alert.alert-warning
+										div.alert.alert-success
+											div Stacks (These are the middleware registered on following routes ) 
+											div
+												b {{ route.route.stack.length }}
+												span  middleware registered on this route
+										div
+											table.table.table-striped
+												tr
+													th S.N 
+													th Method Name
+													th Method Type
+												tr(ng-repeat="stack in route.route.stack")
+													td {{ $index + 1 }}
+													td {{ stack.name }}
+													td {{ stack.method }}
+										hr
+										div Request Method:  {{ route.route.stack.length >= 27 ? 'ALL' : getRouteMethod(route.route.methods) }}
+										div
+											button.btn.btn-default(ng-click="copyLink(route.route.path)") Copy Link
+											a.btn.btn-default(ng-href="{{ getHostDetails()+route.route.path }}" target="_blank") Open Link
+											button.btn.btn-default(ng-click="more($index)") Close
+
+
+				
